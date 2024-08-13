@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>멀티미디어와 관련된 태그</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        #video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #video-background iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: flex-end; /* Align content to the right */
+        }
+
+        .content iframe {
+            border: none;
+            pointer-events: none; /* Disable pointer events to hide controls */
+        }
+
+        .hidden-controls {
+            position: relative;
+            width: 500px; /* Set width of the video frame */
+            height: 255px; /* Set height of the video frame */
+        }
+
+        .hidden-controls iframe {
+            width: 100%;
+            height: 100%;
+            pointer-events: auto; /* Allow iframe to be clicked */
+        }
+
+        /* Optional: Hide YouTube player controls */
+        .hidden-controls iframe {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background YouTube Video -->
+    <div id="video-background">
+        <iframe 
+            src="https://www.youtube.com/embed/WUoJNONHkQM?autoplay=1&mute=1&controls=0"
+            frameborder="0"
+            allow="autoplay; encrypted-media; fullscreen"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Overlay -->
+    <div class="content">
+        <!-- YouTube Embed without controls -->
+        <div class="hidden-controls">
+            <iframe 
+                src="https://www.youtube.com/embed/WUoJNONHkQM?si=yVvoKcNlNNXu6OEM&controls=0"
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    
+    </div>
+</body>
+</html>
